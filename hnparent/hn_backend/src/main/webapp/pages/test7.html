@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>{{info.test1}}</div>
+    <div>{{info.testData1.testData2[1]}}</div>
+    <a v-bind:href="info.test2">aaaaa</a>
+</div>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+<script src="https://unpkg.com/axios@0.27.1/dist/axios.min.js"></script>
+
+<script>
+
+    var vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                info: {
+                    test1: null,
+                    testData2: {
+                        testshuzu1: null,
+                        testshuzu1: null
+                    }
+                }
+            }
+        },
+        mounted() {
+            axios.get('../data.json').then(response => (this.info = response.data))
+        }
+    });
+</script>
+
+</body>
+</html>

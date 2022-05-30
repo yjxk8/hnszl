@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>crtime1:{{crtime1()}}</p>
+    <p>crtime2:{{crtime2}}</p>
+</div>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+<script src="https://unpkg.com/axios@0.27.1/dist/axios.min.js"></script>
+
+<script>
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: "abc"
+        },
+        methods: {
+            crtime1: function () {
+                return Date.now();
+            }
+        },
+        computed: {
+            crtime2: function () {
+                this.message;
+                return Date.now();
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
