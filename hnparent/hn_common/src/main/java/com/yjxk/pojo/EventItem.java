@@ -12,6 +12,35 @@ public class EventItem implements Serializable {
     private String name;//事件名称
     private String operator;//操作人
     private String remark;//事件说明
+    private Date createDate;//创建时间
+    private String reportDept;// 报告科室
+    private String reporter;//报告人
+    private String reportPhone;//联系方式
+
+    public String getReportDept() {
+        return reportDept;
+    }
+
+    public void setReportDept(String reportDept) {
+        this.reportDept = reportDept;
+    }
+
+    public String getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(String reporter) {
+        this.reporter = reporter;
+    }
+
+    public String getReportPhone() {
+        return reportPhone;
+    }
+
+    public void setReportPhone(String reportPhone) {
+        this.reportPhone = reportPhone;
+    }
+
 
     public Date getCreateDate() {
         return createDate;
@@ -21,7 +50,6 @@ public class EventItem implements Serializable {
         this.createDate = createDate;
     }
 
-    private Date createDate;
 
     public Integer getId() {
         return id;

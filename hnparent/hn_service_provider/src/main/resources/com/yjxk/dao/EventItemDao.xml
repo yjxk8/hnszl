@@ -2,12 +2,58 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yjxk.dao.EventItemDao">
-    <!--插入检查项数据-->
+    <!--插入事件问题项数据-->
     <insert id="add" parameterType="com.yjxk.pojo.EventItem">
-        insert into xxzx.pro_event_item(id,code,name,operator,remark,createdate)
+        insert into xxzx.pro_event_item(id,code,name,operator,remark,createdate,reporter,reportdept,reportphone)
                       values
-        (dms.F_SEQUENCE_GEN('PRO_EVENT_ITEM',1),#{code},#{name},#{operator},#{remark},sysdate)
+        (dms.F_SEQUENCE_GEN('PRO_EVENT_ITEM',1),#{code},#{name},#{operator},#{remark},sysdate,#{reporter},#{reportDept},#{reportPhone})
     </insert>
+    <!--分页查询事件问题项数据-->
+    <select id="selectByCondition" parameterType="String" resultType="com.yjxk.pojo.EventItem">
+        select * from xxzx.pro_event_item
+        <if test="value != null and value.length > 0">
+            where code = #{value} or name = #{value}
+        </if>
+    </select>
+
+
+    <delete id="deleteById" parameterType="int">
+        delete from xxzx.pro_event_item where id = #{id}
+    </delete>
+
+
+    <update id="edit" parameterType="com.yjxk.pojo.EventItem">
+        update xxzx.pro_event_item
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="operator != null">
+                operator = #{operator},
+            </if>
+            <if test="code != null">
+                code = #{code},
+            </if>
+
+            <if test="reporter != null">
+                reporter = #{reporter},
+            </if>
+            <if test="reportDept != null">
+                reportdept = #{reportDept},
+            </if>
+            <if test="reportPhone != null">
+                reportphone = #{reportPhone},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="findById" parameterType="int" resultType="com.yjxk.pojo.EventItem">
+        select * from xxzx.pro_event_item where id = #{id}
+    </select>
 
 
 
