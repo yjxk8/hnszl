@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yjxk.dao.EventItemDao">
+    <!--插入检查项数据-->
+    <insert id="add" parameterType="com.yjxk.pojo.EventItem">
+        insert into xxzx.pro_event_item(id,code,name,operator,remark,createdate)
+                      values
+        (dms.F_SEQUENCE_GEN('PRO_EVENT_ITEM',1),#{code},#{name},#{operator},#{remark},sysdate)
+    </insert>
+
+
+
+    <select id="findAll" resultType="com.yjxk.pojo.EventItem">
+        select * from xxzx.pro_event_item
+    </select>
+</mapper>

@@ -29,10 +29,14 @@
             <groupId>com.github.miemiedev</groupId>
             <artifactId>mybatis-paginator</artifactId>
         </dependency>
-        <!-- MySql -->
+<!--        &lt;!&ndash; MySql &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc19</artifactId>
         </dependency>
         <!-- 连接池 -->
         <dependency>
